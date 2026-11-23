@@ -1,0 +1,49 @@
+
+package com.chaoscamera.app
+
+import android.app.Activity
+import android.os.Bundle
+import android.graphics.Color
+import android.view.Gravity
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
+
+class MainActivity : Activity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val layout = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            gravity = Gravity.CENTER
+            setPadding(32, 32, 32, 32)
+            setBackgroundColor(Color.rgb(20, 20, 20))
+        }
+
+        val title = TextView(this).apply {
+            text = "CHAOS CAMERA"
+            textSize = 30f
+            setTextColor(Color.WHITE)
+            gravity = Gravity.CENTER
+        }
+
+        val subtitle = TextView(this).apply {
+            text = "Случайность — новый взгляд."
+            textSize = 16f
+            setTextColor(Color.LTGRAY)
+            gravity = Gravity.CENTER
+        }
+
+        val startButton = Button(this).apply {
+            text = "ЗАПУСТИТЬ КАМЕРУ"
+            isEnabled = false
+        }
+
+        layout.addView(title)
+        layout.addView(subtitle)
+        layout.addView(startButton)
+
+        setContentView(layout)
+    }
+}
